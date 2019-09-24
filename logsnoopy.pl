@@ -22,6 +22,6 @@
 while(1)
 {
     system("cat /usr/local/src/logs/ttylog.\$(hostname\).\$(whoami\)* > /usr/local/src/logs/alltty.\$\(hostname\).\$\(whoami\)");
-    system("python3 /usr/local/src/analyze.py /usr/local/src/logs/alltty.\$\(hostname\).\$\(whoami\)" . " ~/.cli.csv");
-    sleep(20);
+    system("python3 /usr/local/src/analyze_refactor.py /usr/local/src/logs/alltty.\$\(hostname\).\$\(whoami\)" . " ~/.cli.csv");
+    sleep(60);
 }
