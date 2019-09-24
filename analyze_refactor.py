@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
     ttylog_file = open(ttylog,'r')
     ttylog_read_data = ttylog_file.read()
-    ttylog_lines = ttylog_read_data.splitlines()sys.argv[2]
+    ttylog_lines = ttylog_read_data.splitlines()
     ttylog_file.close()
     ttylog_lines = decode(ttylog_lines)
     ttylog_sessions = {}
@@ -105,6 +105,8 @@ if __name__ == "__main__":
     first_ttylog_line = 0
     root_home_dir = '/root'
     node_name = ''
-    
+    csvfile = open(csv_output_file,'w', newline='')
+    csvwriter = csv.writer(csvfile, delimiter=',', quotechar='%', quoting=csv.QUOTE_MINIMAL)
     for line in ttylog_lines:
-        print(line)
+        csvwriter.writerow(line)
+    csvfile.close()
